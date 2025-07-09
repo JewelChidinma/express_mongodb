@@ -1,5 +1,6 @@
 const express = require ('express')
 const { connectToMongoDB } = require ('./db')
+const bookRoute = require ('./routes/book')
 
 require('dotenv').config()
 
@@ -10,6 +11,8 @@ const app = express()
 connectToMongoDB()
 
 app.use(express.json())
+
+app.use('/books', bookRoute)
 
 app.get('/', (req, res) => {
     res.send('Welcome!')
