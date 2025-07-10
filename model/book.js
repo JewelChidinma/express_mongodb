@@ -14,7 +14,8 @@ const BookModelSchema = new Schema({
     },
     isbn: {
         type: String,
-        required: true
+        required: true,
+        unique: [true, 'ISBN must be unique']
     },
     createdAt: {
         type: Date,
